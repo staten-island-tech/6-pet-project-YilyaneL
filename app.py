@@ -1,21 +1,20 @@
 class pet():
-    def __init__(self,name,money,inventory):
+    def __init__(self,name,money,health,happiness,satiety):
         self.name = name
         self.money = money
-        self.inventory = inventory
+        self.health = health
+        self.happiness = happiness
+        self.satiety = satiety
 
-    def buy(self, item):
-        self.inventory.append(item)
-        
-        print("this is what you have in your inventory:")
-        for i in self.inventory:
-            print(i["name"])
-        print("you have", self.money, "dollars left")
+    def putitdown(self,health):
+        ptdwn = input("doy ou want to put your pet down? (yes/no) ")
+        if ptdwn == "yes":
+            ogpet.health = 0
+            print("your pet", ogpet.name, "is DEAD ")
 
-Poopyguy = pet("poopguy", 20, [{"name": "poop"}])
+    def feedit
 
-buy = input("do you want to buy somethign (yes/no)")
+newpet = input("make a new pet (name) ")
+ogpet = pet(newpet, 0, 100, 50, 70)
 
-if buy == "yes":
-    Poopyguy.buy({"name": "stick", "atk": 2, "price": 20})
-
+pet.putitdown(ogpet,100)
