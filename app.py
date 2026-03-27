@@ -40,6 +40,9 @@ class pet():
         self.cleanliness = 0
         self.health = 0
         print(self.name, "has contracted salmonella and")
+    
+    def putdown(self):
+        self.health = 0
         
 Poopyguy = pet("poopguy", 20, [{"name": "poop"}],50,0,0,100,100)
 
@@ -60,9 +63,13 @@ while Poopyguy.health > 0:
         Poopyguy.accident()
         clean = input("do you want to clean it and the house from tis poop? (yes/no) ")
         if clean == "yes":
-            Poopyguy.clean
+            Poopyguy.clean()
         if clean == "no":
-            Poopyguy.noclean
+            Poopyguy.noclean()
+    putdowning = input("do you want to put its poor life down")
+    if putdowning == "yes":
+        Poopyguy.putdown()
+
 
 if Poopyguy.health <=0:
     print(Poopyguy.name, "is dead")
