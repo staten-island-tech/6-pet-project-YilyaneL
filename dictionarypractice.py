@@ -11,39 +11,39 @@ sushi_orders = [
     {"name": "California Roll", "price": 8}
 ]
 
-def bad_version():
-    C = 0
-    S = 0
-    E = 0
-    M = 0
-    STR = 0
-    D = 0
-    for i in sushi_orders:
-        if i['name'] == 'California Roll':
-            C +=1
-        elif i['name'] == 'Salmon Nigiri':
-            S +=1
-        elif i['name'] == 'Edamame':
-            E +=1
-        elif i['name'] == 'Miso Soup':
-            M +=1
-        elif i['name'] == 'Spicy Tuna Roll':
-            STR +=1
-        elif i['name'] == 'Dragon Roll':
-            D +=1
-    print("you have", C, "cali rolls", S, "salm nigiri", E, "edamame", M, "miso soup", STR, "spicy tuna rolls and", D, "dragon rolls")
-bad_version()
+wards = {
+    "Cardiology":  ["Alice", "Bob", "Carol"],
+    "Neurology":   ["Diana", "Eve"],
+    "Orthopedics": ["Frank", "Grace", "Hank"],
+    "Oncology":    ["Ivy", "Bob"]
+}
 
+'''
 def good_version():
     the_receipt = {}
     for sushi in sushi_orders:
         if sushi['name'] in the_receipt:
-            continue
+            the_receipt[sushi['name']]['qty'] +=1
         else:
             the_receipt[sushi['name']] = {
                 'price': sushi['price'],
-                'qty': 1,
+                'qty': 1
             }
-    print(the_receipt)
-
+    for sushi, value in the_receipt.items():
+        price = value['price'] * value['qty']
+        print(sushi,value['qty'], price)
+    
 good_version()
+'''
+
+def nextpractice():
+    staff = {}
+    person = input("who do you want to search for ")
+    for ward, ppl in wards.items():
+        for peple in ppl:
+            if peple == person:
+                staff = {
+                    peple: ward,
+                }
+        print(staff)
+nextpractice()
