@@ -1,3 +1,4 @@
+'''
 sushi_orders = [
     {"name": "California Roll", "price": 8},
     {"name": "Spicy Tuna Roll", "price": 10},
@@ -11,14 +12,7 @@ sushi_orders = [
     {"name": "California Roll", "price": 8}
 ]
 
-wards = {
-    "Cardiology":  ["Alice", "Bob", "Carol"],
-    "Neurology":   ["Diana", "Eve"],
-    "Orthopedics": ["Frank", "Grace", "Hank"],
-    "Oncology":    ["Ivy", "Bob"]
-}
 
-'''
 def good_version():
     the_receipt = {}
     for sushi in sushi_orders:
@@ -35,15 +29,20 @@ def good_version():
     
 good_version()
 '''
+wards = {
+    "Cardiology":  ["Alice", "Bob", "Carol"],
+    "Neurology":   ["Diana", "Eve"],
+    "Orthopedics": ["Frank", "Grace", "Hank"],
+    "Oncology":    ["Ivy", "Bob"]
+}
 
 def nextpractice():
     staff = {}
-    person = input("who do you want to search for ")
-    for ward, ppl in wards.items():
-        for peple in ppl:
-            if peple == person:
-                staff = {
-                    peple: ward,
-                }
-        print(staff)
+    for dept, docs in wards.items():
+        for doc in docs:
+            if doc not in staff:
+                staff[doc] = [dept]
+            else:
+                staff[doc].append(dept)
+    print(staff["Bob"])
 nextpractice()
