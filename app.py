@@ -43,6 +43,9 @@ class pet():
     
     def putdown(self):
         self.health = 0
+    
+    def display_info(self):
+        print(f"Name: {self.name}, Money: {self.money}, Happiness: {self.happiness}, Satiety: {self.satiety}, Poop meter: {self.poo}, health: {self.health}, cleanliness {self.cleanliness}")
         
 Poopyguy = pet("poopguy", 20, [{"name": "poop"}],50,0,0,100,100)
 
@@ -55,22 +58,26 @@ while Poopyguy.health > 0:
     fed = input("do you want to give it food (yes/no) ")
     if fed == "yes":
         Poopyguy.feed()
-
-    pooo = input("do you want to take him to poop (yes/no) ")
-    if pooo == "yes":
-        Poopyguy.poop()
-    elif pooo == "no":
-        Poopyguy.accident()
-        clean = input("do you want to clean it and the house from tis poop? (yes/no) ")
-        if clean == "yes":
-            Poopyguy.clean()
-        if clean == "no":
-            Poopyguy.noclean()
+    if Poopyguy.poo >50:
+        pooo = input("do you want to take him to poop (yes/no) ")
+        if pooo == "yes":
+            Poopyguy.poop()
+        elif pooo == "no":
+            Poopyguy.accident()
+            clean = input("do you want to clean it and the house from tis poop? (yes/no) ")
+            if clean == "yes":
+                Poopyguy.clean()
+            if clean == "no":
+                Poopyguy.noclean()
     putdowning = input("do you want to put its poor life down")
     if putdowning == "yes":
         Poopyguy.putdown()
-
-
+    stating = input("do you want to check your pets stats? (yes/no) ")
+    if stating == "yes":
+        Poopyguy.display_info()
+if Poopyguy.satiety <=0:
+    Poopyguy.health -= 5
+    print("you need to feed poopyguy he is dying ")
 if Poopyguy.health <=0:
     print(Poopyguy.name, "is dead")
 
