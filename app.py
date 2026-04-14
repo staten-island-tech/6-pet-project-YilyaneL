@@ -46,7 +46,11 @@ class pet():
     
     def display_info(self):
         print(f"Name: {self.name}, Money: {self.money}, Happiness: {self.happiness}, Satiety: {self.satiety}, Poop meter: {self.poo}, health: {self.health}, cleanliness {self.cleanliness}")
-        
+    
+    def play(self):
+        self.happiness +=50
+        print("wow your pet", self.name, "is now at", self.happiness, "happiness")
+           
 Poopyguy = pet("poopguy", 20, [{"name": "poop"}],50,0,0,100,100)
 
 while Poopyguy.health > 0:
@@ -58,13 +62,16 @@ while Poopyguy.health > 0:
     fed = input("do you want to give it food (yes/no) ")
     if fed == "yes":
         Poopyguy.feed()
+    if Poopyguy.poo > 100:
+                Poopyguy.health -= 2
+                print("yo poopyguy is dying because he has too much poop in his butt")
     if Poopyguy.poo >50:
         pooo = input("do you want to take him to poop (yes/no) ")
         if pooo == "yes":
             Poopyguy.poop()
         elif pooo == "no":
             Poopyguy.accident()
-            clean = input("do you want to clean it and the house from tis poop? (yes/no) ")
+            clean = input("do you want to clean it and the house from this poop? (yes/no) ")
             if clean == "yes":
                 Poopyguy.clean()
             if clean == "no":
@@ -80,4 +87,6 @@ if Poopyguy.satiety <=0:
     print("you need to feed poopyguy he is dying ")
 if Poopyguy.health <=0:
     print(Poopyguy.name, "is dead")
+if Poopyguy.happiness < 0:
+    print("yo poopyguy is getting sad i think you should put him down or make him happier")
 
