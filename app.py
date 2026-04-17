@@ -65,9 +65,9 @@ class attacker():
         self.health = health
     def attac(self):
         Poopyguy.health -= self.attack
-        print("the attacker has attacked your pet, and he is now at", Poopyguy.health, "health")
+        print("the attacker has attacked your pet, and your pet is now at", Poopyguy.health, "health")
     def showstat(self):
-        print("health:", self.health, "attack:", self.attack)
+        print("attacker health:", self.health, "attacker attack:", self.attack)
 
 Poopyguy = pet("poopguy", 20, [{"name": "poop"}],50,50,50,100,100,0)
 attackerer = attacker(random.uniform(1,10),random.uniform(1,100))
@@ -119,23 +119,28 @@ while Poopyguy.health > 0:
 
     Poopyguy.satiety -=5
     Poopyguy.happiness -=5
-    battle = random.uniform(1,10)
+    battle = 6
 
     if battle == 6:
-        while attackerer.health > 0:
+        print("oh no another animal is attacking your pet:")
+        while attackerer.health > 0 and Poopyguy.health > 0:
             fart = 1*(1+(Poopyguy.strength/100))
             slash = 4*(1+(Poopyguy.strength/100))
             punch = 3*(1+(Poopyguy.strength/100))
-            print("oh no another animal is attacking your pet:")
             attackerer.showstat()
             attackerer.attac()
             atick = input("what do you want to hit him with? (fart,slash,punch)")
+            bleed = 0
             if atick == fart:
                 attackerer.health -= fart
             elif atick ==slash:
-                attackerer.health -= fart
-                bleed = True
-        if attackerer.health < 0:
+                attackerer.health -= slash
+                bleed = 5
+            if bleed >= 3:
+                attackerer.health -=1
+                bleed -=1
+            if atick == punch:
+                attackerer.health -= punch
             
 if Poopyguy.health <=0:
     print(Poopyguy.name, "is dead")
