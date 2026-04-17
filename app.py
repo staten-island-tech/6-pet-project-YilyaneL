@@ -136,7 +136,7 @@ while Poopyguy.health > 0:
                 attackerer.health -= fart
                 bleed = True
         if attackerer.health < 0:
-
+            
 if Poopyguy.health <=0:
     print(Poopyguy.name, "is dead")
 if Poopyguy.happiness < 0:
